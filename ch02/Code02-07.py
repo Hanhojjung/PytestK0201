@@ -21,12 +21,12 @@ def  screenMidClick(x, y):
     b = random.random()
 
 ## 변수 선언 부분 ##
-pSize = 10
+pSize = 7
 r, g, b = 0.0, 0.0, 0.0
 
 ## 메인 코드 부분 ##
 turtle.title('거북이로 그림 그리기')
-turtle.shape('turtle')
+turtle.shape('arrow')
 turtle.pensize(pSize)
 
 turtle.onscreenclick(screenLeftClick, 1)
