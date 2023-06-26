@@ -35,4 +35,15 @@ turtle.onscreenclick(screenLeftClick,1)
 turtle.onscreenclick(screenMidleClick,2)
 turtle.onscreenclick(screenRightClick,3)
 
+
+# 원 색상 채우기
+# turtle.fillcolor("hotpink")
+# turtle.begin_fill()
+# turtle.circle(70)
+# turtle.end_fill()
+
+turtle.color("black", "red")
+turtle.begin_fill()
+turtle.circle(80)
+turtle.end_fill()
 turtle.done()
