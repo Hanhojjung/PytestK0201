@@ -7,9 +7,18 @@ from tkinter import messagebox
 
 def myFunc() :
     if chk.get() == 0 :
-        messagebox.showinfo("","체크버튼이 꺼졌어요")
+        messagebox.showinfo("다이얼로그 제목창입니다.","체크버튼 해제.")
     else :
         messagebox.showinfo("","체크버튼이 켜졌어요")
+
+def myFunc2() :
+    if var.get == 1 :
+        resultLabel.configure(text="라디오 버튼1")
+    elif var.get == 2 :
+        resultLabel.configure(text="라디오 버튼2")
+    else : 
+        resultLabel.configure(text="라디오 버튼3")
+
 
 window = Tk()
 window.title("윈도창 연습")
@@ -29,17 +38,28 @@ labelImg2 = Label(window, image=photo2)
 labelImg3 = Label(window, image=photo3)
 
 button1 = Button(window, text="종료버튼",fg="red", command=quit)
-button1.pack()
+button1.pack(side=TOP, fill=X, padx=10, pady=10, ipadx=10, ipady=10)
 
 button2 = Button(window, image=photo3, command=myFunc)
 button2.pack()
 
-
-chk = IntVar
+button3 = Button(window, text="종료버튼2",fg="red", command=quit)
+button3.pack(side=TOP, fill=X,padx=10, pady=10)
+chk = IntVar()
 cb1 = Checkbutton(window, text="클릭하세요", variable=chk, command=myFunc)
-cb1.pack
+cb1.pack()
 
+# 정수 값을 생성해주는 함수
+var = IntVar()
+rb1 = Radiobutton(window,text="라디오버튼1",variable=var, value=1, command=myFunc2)
+rb2 = Radiobutton(window,text="라디오버튼2",variable=var, value=2, command=myFunc2)
+rb3 = Radiobutton(window,text="라디오버튼3",variable=var, value=3, command=myFunc2)
 
+resultLabel = Label(window, text="선택한 라디오 버튼 : ",fg="red")
+rb1.pack(side=TOP , fill=X)
+rb2.pack(side=TOP , fill=X)
+rb3.pack(side=TOP , fill=X)
+resultLabel.pack()
 # labelImg.pack(side=LEFT)
 # labelImg2.pack(side=RIGHT)
 # labelImg3.pack()
