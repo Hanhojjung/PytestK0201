@@ -10,3 +10,5 @@ while True :
         break
     print("%d : %s" %(lineNum,inStr), end= "")
     lineNum += 1
+
+inFp.close()
