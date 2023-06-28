@@ -16,6 +16,7 @@ wsheetList = workbook.sheets()
 with open("C:/CookAnalysis/Excel/singer_youtube.csv", "w", newline='') as outFp:
     csvWriter = csv.writer(outFp)
     csvWriter.writerow(findColumn)
+    # 실제 데이터 입력 부분
     for worksheet in wsheetList :
         for row in range(1, worksheet.nrows) :
             findList = []

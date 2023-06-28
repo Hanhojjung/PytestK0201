@@ -3,15 +3,14 @@ import csv
 import os
 
 csvFileList = ["C:/CookAnalysis/CSV/singerA.csv", "C:/CookAnalysis/CSV/singerB.csv"]
-outWorkbook = xlwt.Workbook()
 
 for csvFileName in csvFileList :
     rowCount = 0
     with open(csvFileName, "r") as inFp:
         csvReader = csv.reader(inFp)
         header_list = next(csvReader)
-        outSheet = outWorkbook.add_sheet(os.path.basename(csvFileName))
-        # print(os.path.basename(csvFileName))
+        outWorkBook = xlwt.Workbook() # Code 7-7 : 전역 -> Self 7-2 :반복문 안에 사용
+        outSheet = outWorkBook.add_sheet(os.path.basename(csvFileName))
         for col in range(len(header_list)) :
             outSheet.write(rowCount, col, header_list[col])
         for row_list in csvReader:
@@ -21,6 +20,6 @@ for csvFileName in csvFileList :
                     outSheet.write(rowCount, col, float(row_list[col]))
                 else :
                     outSheet.write(rowCount, col, row_list[col])
-
-outWorkbook.save('c:/CookAnalysis/Excel/singerCSV.xls')
+        fname = os.path.basename(csvFileName).split('.')[0]
+        outWorkBook.save('c:/CookAnalysis/Excel/'+ fname + '.xls')
 print("Save. OK~")
