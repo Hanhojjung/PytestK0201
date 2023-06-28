@@ -9,6 +9,9 @@ def loadImage(fname) :
         tmpList = [] #순서1
         for k in range(0, YSIZE) :  #순서2
             data = int(ord(fp.read(1)))
+            # print(fp.read(1))
+            # ord 유니코드의 한 문자의 값을 정수로 표현
+            # print(ord(fp.read(1)))
             tmpList.append(data)
         inImage.append(tmpList) #순서3
 
@@ -38,7 +41,7 @@ canvas = Canvas(window, height = XSIZE, width = YSIZE)
 paper = PhotoImage(width = XSIZE, height = YSIZE)
 canvas.create_image((XSIZE/2, YSIZE/2), image = paper, state = "normal")
 
-# 파일 --> 메모리
+# 파일 --> 메모리 : 결과 전역 변수인 inImage 배열에 담아져 있음
 filename = 'RAW/tree.raw'  # C:/CookAnalysis/RAW/tree.raw
 loadImage(filename)
 
