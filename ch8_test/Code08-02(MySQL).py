@@ -6,7 +6,7 @@ data1, data2, data3, data4 = "", "", "", ""
 row=None
 
 ## 메인 코드 부분 ##
-con = pymysql.connect(host='127.0.0.1', user='root', password='1234', database='naverDB', charset='utf8') 
+con = pymysql.connect(host='127.0.0.1', user='root', password='mysql', database='naverDB', charset='utf8') 
 cur = con.cursor()
 
 cur.execute("SELECT * FROM userTable")
