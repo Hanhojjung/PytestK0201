@@ -15,7 +15,8 @@ for i in range(w) :
         photoR[i][k] = r
         photoG[i][k] = g
         photoB[i][k] = b
-
+# 이미지의 각 픽셀의 RGB의 색깔 코드를 가져오는 작업, 이미지 -> 메모리
+# 워크시트 3개
 workbook = xlsxwriter.Workbook('C:/CookAnalysis/Excel/pic7.xlsx')
 worksheetR = workbook.add_worksheet('photoR')
 worksheetG = workbook.add_worksheet('photoG')

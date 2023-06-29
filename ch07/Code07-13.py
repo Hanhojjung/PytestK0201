@@ -23,11 +23,13 @@ worksheet.set_column(0, w - 1, 1.0)  # 약 0.34
 for i in range(h):
     worksheet.set_row(i, 9.5)  # 약 0.35
 
+# 10진수 -> 16진수로 변환하는 작업, 해당 HEX 결과의 값이 0XFF 형식인데, 
+# 만약 2자리가 아니라 1자리이면, 앞에 0을 붙여 출력함
 for i in range(w) :
     for k in range(h) :
-        hexR = hex(photoR[i][k])
-        hexG = hex(photoG[i][k])
-        hexB = hex(photoB[i][k])
+        hexR = hex(photoR[i][k]) #0XFF(255), #0XF(15), #0X10(16)
+        hexG = hex(photoG[i][k]) #0XFF
+        hexB = hex(photoB[i][k]) #0XFF
         hexStr = '#'
         if len(hexR[2:]) < 2:
             hexStr += '0' + hexR[2:]
@@ -42,6 +44,7 @@ for i in range(w) :
         else:
             hexStr += hexB[2:]
 
+# 셀 서식 -> 배경 -> hexStr #FFFFFF
         cell_format = workbook.add_format()
         cell_format.set_bg_color(hexStr)
         worksheet.write(k, i, '', cell_format)
