@@ -52,7 +52,7 @@ def insertData(title,price,gift,link,imgLinkUrl) :
     con.close()
 ##
 
-page = 2
+page = 1
 aladinlUrl = "https://www.aladin.co.kr/shop/wbrowse.aspx?CID=50917&page="
 while True :
     bookUrl = aladinlUrl + str(page)
@@ -61,7 +61,7 @@ while True :
     webPage = htmlObject.read()
     bsObject = bs4.BeautifulSoup(webPage, 'html.parser')
     
-    tag_list = bsObject.findAll('div', {'class': 'browse-right'})
+    tag_list = bsObject.findAll('div', {'class': 'ss_book_box'})
 
     print('###### 알라딘 정보 #######')
     

@@ -3,7 +3,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 inFilename = 'C:/CookAnalysis/Excel/singer.xlsx'
-outFilename = 'C:/CookAnalysis/Excel/singer_over6.xlsx'
+outFilename = 'C:/CookAnalysis/Excel/singer_over6_0630.xlsx'
 
 df_seniro = pd.read_excel(inFilename, 'senior', index_col=None)
 df_junior = pd.read_excel(inFilename, 'junior', index_col=None)
@@ -11,7 +11,8 @@ df_junior = pd.read_excel(inFilename, 'junior', index_col=None)
 df_singer = pd.concat( [df_seniro, df_junior] )
 df_singer_over6 = df_singer[df_singer['인원'] >= 6]
 df_singer_over6 = df_singer_over6.sort_values(by=['인원'], axis=0, ascending=False)
-
+# 인원 수 정렬
+print(df_singer_over6)
 df_singer_over6 = df_singer_over6.loc[:, ['아이디', '이름', '인원', '유튜브 조회수']]
 
 x_data = df_singer_over6['아이디']
